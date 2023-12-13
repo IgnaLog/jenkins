@@ -27,6 +27,8 @@ pipeline {
                     sh 'cd myapp'
                     // Listar archivos (para depuración)
                     sh 'ls'
+                    // Cambiar al directorio que contiene hello.py
+                    sh 'cd myapp'
                     // Ejecutar el script hello.py
                     sh 'python3 hello.py'
                     sh 'python3 hello.py --name=Brad'
