@@ -24,7 +24,7 @@ pipeline {
                     // Activate the virtual environment
                     sh 'cd myapp'
                     sh 'python3 -m venv venv'
-                    sh 'source venv/bin/activate'
+                    sh '. venv/bin/activate' // Use a dot to source the activate script
                     
                     // Install dependencies (including the fire module)
                     sh 'pip install -r requirements.txt'
