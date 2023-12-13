@@ -21,17 +21,20 @@ pipeline {
             steps {
                 echo "Testing..."
                 script {
-                    // Activar el entorno virtual
+                    // Activate the virtual environment
                     sh 'cd myapp'
                     sh 'python3 -m venv venv'
-                    sh 'source myapp/venv/bin/activate'
+                    sh 'source venv/bin/activate'
                     
-                    // Install dependencies (including fire module)
+                    // Install dependencies (including the fire module)
                     sh 'pip install -r requirements.txt'
                     
-                    // Rest of the code...
-                    sh 'python3 myapp/hello.py'
-                    sh 'python3 myapp/hello.py --name=Brad'
+                    // Display the current Python environment
+                    sh 'which python'
+                    sh 'python --version'
+                    
+                    // Execute your test script
+                    sh 'python myapp/hello.py'
                 }
             }
         }
