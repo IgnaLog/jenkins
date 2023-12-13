@@ -34,4 +34,12 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            echo "Cleaning up..."
+            script {
+                env.PATH = "${WORKSPACE}/myapp/.local/bin:${env.PATH}"
+            }
+        }
+    }
 }
