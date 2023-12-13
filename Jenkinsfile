@@ -10,10 +10,11 @@ pipeline {
                 echo "Building..."
                 sh '''
                 cd myapp
-                export PYTHONUSERBASE=$(pwd)/.local
-                pip install --user -r requirements.txt
+                python3 -m venv venv
+                source venv/bin/activate
+                pip install -r requirements.txt
                 '''
-    }
+            }
         }
         stage('Test') {
             steps {
