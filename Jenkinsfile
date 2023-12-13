@@ -20,13 +20,17 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Testing..."
-                sh '''
-                source venv/bin/activate
-                cd myapp
-                ls
-                python3 hello.py
-                python3 hello.py --name=Brad
-                '''
+                script {
+                    // Activar el entorno virtual
+                    sh 'source myapp/venv/bin/activate'
+                    // Ir al directorio de la aplicación
+                    sh 'cd myapp'
+                    // Listar archivos (para depuración)
+                    sh 'ls'
+                    // Ejecutar el script hello.py
+                    sh 'python3 hello.py'
+                    sh 'python3 hello.py --name=Brad'
+                }
             }
         }
         stage('Deliver') {
