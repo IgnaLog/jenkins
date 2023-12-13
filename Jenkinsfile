@@ -22,14 +22,15 @@ pipeline {
                 echo "Testing..."
                 script {
                     // Activar el entorno virtual
+                    sh 'cd myapp'
                     sh 'source myapp/venv/bin/activate'
                     // Ir al directorio de la aplicación
                     sh 'cd myapp'
                     // Listar archivos (para depuración)
                     sh 'ls'
                     // Ejecutar el script hello.py
-                    sh 'python3 hello.py'
-                    sh 'python3 hello.py --name=Brad'
+                    sh 'python3 myapp/hello.py'
+                    sh 'python3 myapp/hello.py --name=Brad'
                 }
             }
         }
