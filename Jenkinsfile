@@ -21,6 +21,7 @@ pipeline {
             steps {
                 echo "Testing..."
                 sh '''
+                source venv/bin/activate
                 cd myapp
                 ls
                 python3 hello.py
