@@ -9,13 +9,14 @@ pipeline {
     }
     stages {
         stage('Build') {
-            steps {
+           steps {
                 echo "Building..."
                 sh '''
                 cd myapp
-                pip install -r requirements.txt
+                export PIP_USER=no
+                pip install --user -r requirements.txt
                 '''
-            }
+    }
         }
         stage('Test') {
             steps {
