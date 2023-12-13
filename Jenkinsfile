@@ -4,16 +4,13 @@ pipeline {
             label 'docker-agent-python'
         }
     }
-    triggers {
-        pollSCM '* * * * *'
-    }
     stages {
         stage('Build') {
            steps {
                 echo "Building..."
                 sh '''
                 cd myapp
-                export PIP_USER=no
+                export PYTHONUSERBASE=$(pwd)/.local
                 pip install --user -r requirements.txt
                 '''
     }
