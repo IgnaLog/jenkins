@@ -23,6 +23,7 @@ pipeline {
                 script {
                     // Activar el entorno virtual
                     sh 'cd myapp'
+                    sh 'python3 -m venv venv'
                     sh 'source myapp/venv/bin/activate'
                     
                     // Install dependencies (including fire module)
